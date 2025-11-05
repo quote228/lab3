@@ -5,13 +5,13 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  #workflow_dispatch:  # Позволяет запускать вручную
+  workflow_dispatch:  # Позволяет запускать вручную
 
 jobs:
   unit_tests:
     name: Run Unit Tests
-    runs-on: ubuntu-latest
-    runs-on: self-hosted
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted, Linux, X64
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
