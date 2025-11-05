@@ -36,8 +36,8 @@ class MortgageCalculator:
         
         rate_factor = (1 + self.monthly_rate) ** self.months
         monthly_payment = self.principal * self.monthly_rate * rate_factor / (rate_factor - 1)
-        #return round(monthly_payment, 2)
-        return "error"
+        return round(monthly_payment, 2)
+        #return "error"
 
     def calculate_total_payment(self):
         """Calculate total payment over loan term.
