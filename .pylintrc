@@ -11,7 +11,7 @@ disable=
     C0115,  # missing-class-docstring
     C0116,  # missing-function-docstring
     W0718,  # broad-exception-caught
-    C0303,  # Trailing whitespace
+    #C0303,  # Trailing whitespace
 
 [BASIC]
 good-names=
