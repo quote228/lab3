@@ -1,0 +1,22 @@
+name: Test Runner
+
+on: 
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Test runner
+      run: |
+        echo "✅ Раннер работает!"
+        echo "💻 Хост: $(hostname)"
+        echo "📂 Директория: $(pwd)"
+        echo "👤 Пользователь: $(whoami)"
+        ls -la
