@@ -1,11 +1,11 @@
-name: CI Pipeline
+name: lab3
 
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch:  # Позволяет запускать вручную
+  #workflow_dispatch:  # Позволяет запускать вручную
 
 jobs:
   unit_tests:
@@ -72,37 +72,4 @@ jobs:
           echo "Версия: ${{ github.sha }}"
           echo "Образ: mortgage-calculator:${{ github.sha }}"
           echo "Всё стадии пройдены - код готов к развертыванию!"
-stages:
-  - test
-  - lint
-  - build
-  - deploy
-
-before_script:
-  - python --version
-  - pip install -r requirements.txt
-
-unit_tests:
-  stage: test
-  script:
-    - echo "Запуск автоматических тестов..."
-    - python -m pytest tests/ -v
-    - echo "Тесты завершены успешно!"
-
-code_quality:
-  stage: lint
-  script:
-    - echo "Проверка качества кода..."
-    - pylint app/ tests/ --fail-under=7.0
-    - echo "Проверка стиля кода завершена!"
-
-deploy_demo:
-  stage: deploy
-  script:
-    - echo "ДЕПЛОЙ НА ПРОДУКТИВНЫЙ СЕРВЕР"
-    - echo "Версия:$CI_COMMIT_SHORT_SHA"
-    - echo "Образ:mortgage-calculator:$CI_COMMIT_SHORT_SHA"
-    - echo "Все стадии пройдены - код готов к развертыванию!"
-  tags:
-    - docker
-  when: manual
+          
